@@ -1,8 +1,9 @@
 <?php
-//<---------FOR STORING THE DATA INTO THE TABLE------------->
+
 include 'connect.php';
 $id = $_GET['updateid'];
 
+// writing the this query for the existing data while updating the values
 $sql = "select * from `crud` where id=$id";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
@@ -17,6 +18,7 @@ if (isset($_POST['submit'])) {
     $mobile = $_POST['mobile'];
     $password = $_POST['password'];
 
+// using update query
     $sql = "update `crud` set id='$id',name='$name',email='$email',
   mobile='$mobile',password='$password'
   where id=$id";

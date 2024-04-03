@@ -1,5 +1,6 @@
 <?php
 include 'connect.php';
+// Check if the 'deleteid' parameter is set in the URL
 if (isset($_GET['deleteid'])) {
     $id = $_GET['deleteid'];
 

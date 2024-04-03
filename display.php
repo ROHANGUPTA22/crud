@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include 'connect.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ include 'connect.php';
 
             <?php
             
-            $sql="select * from `crud`";
+            $sql="select * from `crud`"; 
             $result=mysqli_query($con,$sql);
             if ($result) {
                 while($row=mysqli_fetch_assoc($result)){
@@ -40,6 +40,8 @@ include 'connect.php';
                     $email=$row['email'];
                     $mobile=$row['mobile'];
                     $password=$row['password'];
+
+                    // Concatenation 
                     echo '<tr>
                     <th scope="row">'.$id.'</th>
                     <td>'.$name.'</td>
