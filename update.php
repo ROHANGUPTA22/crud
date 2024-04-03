@@ -1,31 +1,31 @@
 <?php
 //<---------FOR STORING THE DATA INTO THE TABLE------------->
 include 'connect.php';
-$id=$_GET['updateid'];
+$id = $_GET['updateid'];
 
-$sql="select * from `crud` where id=$id";
-$result=mysqli_query($con,$sql);
-$row=mysqli_fetch_assoc($result);
-$name=$row['name'];
-$email=$row['email'];
-$mobile=$row['mobile'];
-$password=$row['password'];
+$sql = "select * from `crud` where id=$id";
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_assoc($result);
+$name = $row['name'];
+$email = $row['email'];
+$mobile = $row['mobile'];
+$password = $row['password'];
 
-if(isset($_POST['submit'])){
-  $name =$_POST['name'];
-  $email =$_POST['email'];
-  $mobile =$_POST['mobile'];
-  $password =$_POST['password'];
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $mobile = $_POST['mobile'];
+    $password = $_POST['password'];
 
-  $sql="update `crud` set id='$id',name='$name',email='$email',
+    $sql = "update `crud` set id='$id',name='$name',email='$email',
   mobile='$mobile',password='$password'
   where id=$id";
-  $result=mysqli_query($con,$sql);
-  if($result){
-    header('location:display.php');
-  }else{
-    die(mysqli_error($con));
-  }
+    $result = mysqli_query($con, $sql);
+    if ($result) {
+        header('location:display.php');
+    } else {
+        die(mysqli_error($con));
+    }
 }
 
 ?>
@@ -45,19 +45,19 @@ if(isset($_POST['submit'])){
         <form method="post">
             <div class="form-group">
                 <label>Name</label>
-                <input type="name" class="form-control" placeholder="Enter your name" name="name" value=<?php echo $name;?>>
+                <input type="name" class="form-control" placeholder="Enter your name" name="name" value=<?php echo $name; ?>>
             </div>
             <div class="form-group">
                 <lable>Email</lable>
-                <input type="email" class="form-control" placeholder="Enter your email" name="email" value=<?php echo $email;?>>
+                <input type="email" class="form-control" placeholder="Enter your email" name="email" value=<?php echo $email; ?>>
             </div>
             <div class="form-group">
                 <lable>Mobile</lable>
-                <input type="text" class="form-control" placeholder="Enter your Numbar" name="mobile" value=<?php echo $mobile;?>>
+                <input type="text" class="form-control" placeholder="Enter your Numbar" name="mobile" value=<?php echo $mobile; ?>>
             </div>
             <div class="form-group">
                 <lable>Password</lable>
-                <input type="password" class="form-control" placeholder="Enter pasword" name="password" value=<?php echo $password;?>>
+                <input type="password" class="form-control" placeholder="Enter pasword" name="password" value=<?php echo $password; ?>>
             </div>
             <button type="submit" class="btn btn-primary" name="submit">Update</button>
     </div>
